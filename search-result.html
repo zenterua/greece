@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700%7CRoboto:400,700" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon.ico" />
+  	<title>Greece</title>
+  	<style>
+  	    #loader-wrapper {position: fixed;left: 0;top: -100px;right: 0;bottom: -100px;background: #fff;z-index: 50;}
+        .loaderMessage {position: absolute; top: 50%; left: 50%; font-family: "Noto serif"; font-style: italic; font-size: 17px; line-height: 28px; color: #2b2b2b; margin-top: 35px; margin-left: -37px;}
+  	</style>
+</head>
+<body>
+
+    <!--     Loader-Start     -->
+    <div id="loader-wrapper">
+        <div class="loader loader-circle"></div>
+        <div class="loaderMessage">Loading . . <span>.</span> </div>
+    </div>
+    <!--     Loader-End     -->
+
+    <div id="content-block">
+        <!--     Header-Start     -->
+        <header>
+            <div class="container">
+                <div class="row">      
+                    <!--     Main Menu-Start     -->
+                    <div class="mainMenuWrapper">
+						<div class="innerMenuWrapper">
+                      	 	<a class="logo" href="index.html"><img src="img/logo.png" alt=""></a>
+                        	<div class="menuIcon"> 
+								<span></span> 
+								<span></span> 
+								<span></span> 
+								<span></span> 
+							</div>
+                        </div>
+                        <div class="mobileWrapper">
+							<nav class="mainMenu">
+								<ul>
+									<li><a href="index.html">Home</a></li>
+									<li class="dropDownParent">
+										<a href="object.html">Our Objects</a>
+										<span class="respDDicon"></span>
+										<div class="mainMenuDropDown">
+											<ul>
+												<li><a href="index.html">Object1</a></li>
+												<li><a href="index.html">Object2</a></li>
+												<li><a href="index.html">Object3</a></li>
+												<li><a href="index.html">Object4</a></li>
+											</ul>
+										</div>
+									</li>
+									<li><a href="recomendation.html">Recommendations</a></li>
+									<li><a href="services.html">Services</a></li>
+									<li><a href="about.html">About Us</a></li>
+									<li><a href="contact.html">Contact Us</a></li>
+								</ul>
+							</nav>
+							<!--     Top Menu-Start     -->
+							<div class="topMenuWrapper">
+								<!--     Langueage-Start     -->
+								<div class="switchLanguage borderRight">
+									<img src="img/en-language-icon.jpg" alt="">
+									<span>Eng</span>
+									<div class="languageDropDown">
+										<ul>
+											<li>
+												<a href="elements.html"><img src="img/uk-language-icon.png" alt=""><span>Ukr</span></a>
+											</li>
+											<li>
+												<a href="elements.html"><img src="img/ger-language-icon.png" alt=""><span>Ger</span></a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<!--     Langueage-End     -->
+
+								<!--     Email-Start     -->
+								<div class="email borderRight">
+									<h6 class="h8 as">our email: <a href="mailto:your_summer@email.com">your_summer@email.com</a></h6>
+								</div>
+								<!--     Email-End     -->
+
+								<!--     Social-Start     -->
+								<div class="headerSocial borderRight">
+									<h6 class="h8 as">follow us:</h6>
+								</div>
+								<div class="socialWrapper">
+									<a class="borderRight" href="https://www.facebook.com/" target="_blank"><i class="icon-facebook social"></i></a>
+									<a class="borderRight" href="https://twitter.com/?lang=ru" target="_blank"><i class="icon-twitter social"></i></a>
+									<a class="borderRight" href="https://www.instagram.com/" target="_blank"><i class="icon-instagram social"></i></a>
+								</div>
+								<!--     Social-End     -->
+
+								<!--     login-Start     -->
+								<div class="loginWrapper">
+									<div class="openLogin open-popup borderleft" data-rel="1">
+										<h6 class="h8 as">Login</h6>
+									</div>
+									<div class="openRegister open-popup borderleft" data-rel="2">
+										<h6 class="h8 as">Register</h6>    
+									</div>
+								</div>
+								<!--     login-End     -->
+							</div>
+							<!--     Top Menu-End     -->
+						</div>
+                    </div>
+                    <!--     Main Menu-End     -->
+                </div>
+            </div>
+        </header>
+        <div class="headerClearFix"></div>
+        <!--     Header-Start     -->
+       
+		<!-- 	Search Result title-START 	-->
+       	<div class="bgWhite">
+       		<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="bannerTitle bookingTitle">
+							<div class="cell-view">
+								<h1 class="h1 as">Search Result</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+       	</div>
+        <!-- 	Search Result title-END 	-->
+        
+        <div class="myContainer">
+			<!-- 	Side bar search-START 	-->
+       		<div class="searchSidebarWrapper">
+       			<div class="searchOptions">
+       				<div class="button">Search Options</div>
+       			</div>
+       			<div class="searchSidebar">
+					<div class="mainForm normall">
+						<p>Choose a Region</p>
+						<div class="sumoWrapper">
+							<select name="form" class="SelectBox">
+								<option selected>All</option>
+								<option>Region 1</option>
+								<option>Region 2</option>
+								<option>Region 3</option>
+								<option>Region 4</option>
+							</select>
+						</div>
+					</div>
+					<div id="searchCalendar" class="normall calendarNormalPos">
+						<p>When</p>
+						<div class="emptySpace10"></div>
+						<div class="arrive small">Arrive</div>
+						<div class="whenArrow"></div>
+						<div class="arrive small">Departure</div>
+						<div class="emptySpace20"></div>
+					</div>
+					<div class="mainForm normall">
+						<p>Adults</p>
+						<div class="emptySpace5"></div>
+						<div class="sumoWrapper size2">
+							<select name="form" class="SelectBox">
+								<option selected>01</option>
+								<option>02</option>
+								<option>03</option>
+								<option>04</option>
+								<option>05</option>
+							</select>
+						</div>
+					</div>
+					<div class="mainForm normall">
+						<p>Children</p>
+						<div class="emptySpace5"></div>
+						<div class="sumoWrapper size2">
+							<select name="form" class="SelectBox">
+								<option selected>00</option>
+								<option>01</option>
+								<option>02</option>
+								<option>03</option>
+								<option>04</option>
+							</select>
+						</div>
+					</div>
+					<div class="mainForm normall">
+						<p>Type</p>
+						<div class="emptySpace5"></div>
+						<div class="sumoWrapper size2">
+							<select name="form" class="SelectBox">
+								<option selected>All</option>
+								<option>Type 1</option>
+								<option>Type 2</option>
+								<option>Type 3</option>
+								<option>Type 4</option>
+							</select>
+						</div>
+					</div>
+					<div class="priceFrom normall">
+						<p>Price</p>
+						<div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+							<div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+							<span class="ui-slider-handle ui-corner-all ui-state-default"></span>
+							<span class="ui-slider-handle ui-corner-all ui-state-default"></span>
+						</div>
+						<div class="priceVelue">
+							<input type="text" id="amount" readonly>
+							<input type="text" id="amount2" readonly>
+						</div>
+					</div>
+					<div class="filtersForm normall">
+						<p>Additional Filters</p>
+						<i class="filterIcon"></i>
+						<div class="moreFilters">
+							<label class="checkbox-entry">
+								<input type="checkbox" /><span>Swimming Pool</span>
+							</label>
+							<label class="checkbox-entry">
+								<input type="checkbox" /><span>BBQ</span>
+							</label>
+							<label class="checkbox-entry">
+								<input type="checkbox" /><span>Wi-Fi</span>
+							</label>
+							<label class="checkbox-entry">
+								<input type="checkbox" /><span>Air Conditioning</span>
+							</label>
+							<label class="checkbox-entry">
+								<input type="checkbox" /><span>Kitchen</span>
+							</label>
+						</div>
+					</div>
+					<div class="mainForm filterBtn normall">
+						<button class="button btnSize2" type="submit">search</button>
+					</div>
+				</div>
+       		</div>
+        	<!-- 	Side bar search-END 	-->
+        	
+			<!-- 	Content box-START 	-->
+        	<div class="myInnerContainer">
+				<!-- 	Search Top Info-START 	-->
+        		<div class="searchTopInfo">
+        			<h6 class="h6 as">Found <span>26</span> Objects</h6>
+        		</div>
+        		<div class="emptySpace40 emptySpace-xs30">
+        		<!-- 	Search Top Info-END 	-->	
+        		</div>
+        		
+        		<!-- 	Map-Start 	-->
+				<div id="map-canvas" class="map-inst mapSize2" data-lat="37.7057416" data-lng="24.0343753" data-zoom="10"></div>
+				<div class="addresses-block"  data-rel="map-canvas">
+					<a class="marker" data-lat="37.7057416" data-lng="24.0343753" data-string="1. Here is some address or email or phone or something else..."></a>
+				</div>
+				<!-- 	Map-End 	-->
+     			
+      			<div class="emptySpace10 emptySpace-xs30"></div>
+      			
+      			<!--  	Top Info-START 	-->
+				<div class="searchSort">
+					<div class="col-md-12">
+						<div class="sumoWrapper">
+							<h6 class="h6 as">Sort By</h6>
+							<select name="form" class="SelectBox">
+								<option selected>Popular</option>
+								<option>Popular 1</option>
+								<option>Popular 2</option>
+								<option>Popular 3</option>
+								<option>Popular 4</option>
+								<option>Popular 5</option>
+							</select>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<div class="emptySpace5 emptySpace-xs10"></div>
+				</div>
+      	   	    <!--  	Top Info-END 	-->
+      	   	    
+      	   	    <div class="emptySpace40 emptySpace-xs30"></div>
+      	   	    
+				<!--  	Search Block1-START 	-->
+       			<div class="SearchResultBlock wow fadeInUp">
+       				<div class="searchImgBox">
+						<a href="#" class="thumbnailAnimation ">
+							<span class="tumbBrTB">
+								<span class="tumbBrLR">
+									<img class="imgShortcode" src="img/search-result-img.jpg" alt="">
+								</span>
+							</span>
+						</a>
+						<div class="objectDiscount small">
+							<p>-30% Off</p>
+						</div>
+						<div class="emptySpace-sm20"></div>
+					</div>
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-sm-10 col-sm-offset-1 col-md-7 col-md-offset-3">
+								<div class="emptySpace10"></div>
+								<div class="searchResultContent small">
+									<h5 class="h5 as"><a href="#">Lagonisi Resident 1</a></h5>
+									<div class="emptySpace20"></div>
+									<div class="bannerStars">
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+										<i class="icon-star-empty"></i>
+										<p>30 REVIEWS</p>
+										<div class="emptySpace-sm10"></div>
+									</div>
+									<div class="addresShortocode">
+										<a href="#">
+											<img class="imgShortcode2" src="img/addres-icon.png" alt="">
+											<span>Halkidiki, Makedonia Thraki, Greece</span>
+										</a>
+									</div>
+									<div class="emptySpace15"></div>
+									<p>Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupid at at non proident, sunt in culpare</p>
+									<div class="emptySpace15"></div>
+									<div class="objectPrice newPrice">
+										<p>$3 500/mo<span>$4 550/mo</span></p>
+									</div>
+									<div class="emptySpace20"></div>
+									<div class="bannerMoreInfo">
+										<div class="moreInfo">
+											<img class="imgShortcode2" src="img/more-info-icon-black.png" alt="">
+											<p>Entire home/apt</p>
+										</div>
+										<div class="moreInfo">
+											<img class="imgShortcode2" src="img/more-info-icon2-black.png" alt="">
+											<p>6 Guests</p>
+										</div>
+										<div class="moreInfo">
+											<img class="imgShortcode2" src="img/more-info-icon3-black.png" alt="">
+											<p>2 Bedrooms</p>
+										</div>
+										<div class="moreInfo">
+											<img class="imgShortcode2" src="img/more-info-icon4-black.png" alt="">
+											<p>3 Beds</p>
+										</div>
+									</div>
+								</div>
+								<div class="emptySpace-sm30"></div>
+							</div> 
+						</div>
+					</div>
+					<div class="searchMapBox">
+						<!-- 	Map-Start 	-->
+						<div id="map-canvas2" class="map-inst mapSize4" data-lat="37.672081" data-lng="24.350031" data-zoom="10"></div>
+						<div class="addresses-block"  data-rel="map-canvas2">
+							<a class="marker" data-lat="37.672081" data-lng="24.350031" data-string="1. Here is some address or email or phone or something else..."></a>
+						</div>
+						<!-- 	Map-End 	-->
+					</div>
+      				<div class="clear"></div>
+      				<div class="emptySpace40 emptySpace-xs30"></div>
+       			</div>
+       			<!--  	Search Block1-END 	-->
+       			
+       			<div class="emptySpace40 emptySpace-xs30"></div>
+       			
+       			<!--  	Search Block2-START 	-->
+       			<div class="SearchResultBlock wow fadeInUp">
+       				<div class="searchImgBox">
+						<a href="#" class="thumbnailAnimation ">
+							<span class="tumbBrTB">
+								<span class="tumbBrLR">
+									<img class="imgShortcode" src="img/search-result-img2.jpg" alt="">
+								</span>
+							</span>
+						</a>
+						<div class="objectBestPrice  newPrice">
+							<p>Best Price</p>
+						</div>
+						<div class="emptySpace-sm20"></div>
+					</div>
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-sm-10 col-sm-offset-1 col-md-7 col-md-offset-3">
+								<div class="emptySpace10"></div>
+								<div class="searchResultContent small">
+									<h5 class="h5 as"><a href="#">Cottage Rainbow</a></h5>
+									<div class="emptySpace20"></div>
+									<div class="bannerStars">
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+										<i class="icon-star-empty"></i>
+										<p>30 REVIEWS</p>
+										<div class="emptySpace-sm10"></div>
+									</div>
+									<div class="addresShortocode">
+										<a href="#">
+											<img class="imgShortcode2" src="img/addres-icon.png" alt="">
+											<span>Halkidiki, Makedonia Thraki, Greece</span>
+										</a>
+									</div>
+									<div class="emptySpace15"></div>
+									<p>Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupid at at non proident, sunt in culpare</p>
+									<div class="emptySpace15"></div>
+									<div class="emptySpace20"></div>
+									<div class="bannerMoreInfo">
+										<div class="moreInfo">
+											<img class="imgShortcode2" src="img/more-info-icon-black.png" alt="">
+											<p>Entire home/apt</p>
+										</div>
+										<div class="moreInfo">
+											<img class="imgShortcode2" src="img/more-info-icon2-black.png" alt="">
+											<p>6 Guests</p>
+										</div>
+										<div class="moreInfo">
+											<img class="imgShortcode2" src="img/more-info-icon3-black.png" alt="">
+											<p>2 Bedrooms</p>
+										</div>
+										<div class="moreInfo">
+											<img class="imgShortcode2" src="img/more-info-icon4-black.png" alt="">
+											<p>3 Beds</p>
+										</div>
+									</div>
+								</div>
+								<div class="emptySpace-sm30"></div>
+							</div> 
+						</div>
+					</div>
+					<div class="searchMapBox">
+						<!-- 	Map-Start 	-->
+						<div id="map-canvas3" class="map-inst mapSize4" data-lat="37.9661778" data-lng="23.9691285" data-zoom="10"></div>
+						<div class="addresses-block"  data-rel="map-canvas3">
+							<a class="marker" data-lat="37.9661778" data-lng="23.9691285" data-string="1. Here is some address or email or phone or something else..."></a>
+						</div>
+						<!-- 	Map-End 	-->
+
+					</div>
+      				<div class="clear"></div>
+      				<div class="emptySpace40 emptySpace-xs30"></div>
+       			</div>
+       			<!--  	Search Block2-END 	-->
+       			
+       			<div class="emptySpace40 emptySpace-xs30"></div>
+       			
+       			<!--  	Search Block3-START 	-->
+       			<div class="SearchResultBlock wow fadeInUp">
+       				<div class="searchImgBox">
+						<a href="#" class="thumbnailAnimation ">
+							<span class="tumbBrTB">
+								<span class="tumbBrLR">
+									<img class="imgShortcode" src="img/search-result-img3.jpg" alt="">
+								</span>
+							</span>
+						</a>
+						<div class="objectNew   small">
+							<p>New</p>
+						</div>
+						<div class="emptySpace-sm20"></div>
+					</div>
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-sm-10 col-sm-offset-1 col-md-7 col-md-offset-3">
+								<div class="emptySpace10"></div>
+								<div class="searchResultContent small">
+									<h5 class="h5 as"><a href="#">Villa Sofi Dream</a></h5>
+									<div class="emptySpace20"></div>
+									<div class="bannerStars">
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+										<i class="icon-star-empty"></i>
+										<p>30 REVIEWS</p>
+										<div class="emptySpace-sm10"></div>
+									</div>
+									<div class="addresShortocode">
+										<a href="#">
+											<img class="imgShortcode2" src="img/addres-icon.png" alt="">
+											<span>Halkidiki, Makedonia Thraki, Greece</span>
+										</a>
+									</div>
+									<div class="emptySpace15"></div>
+									<p>Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupid at at non proident, sunt in culpare</p>
+									<div class="emptySpace15"></div>
+									<div class="objectPrice newPrice">
+										<p>$3 500/mo<span>$4 550/mo</span></p>
+									</div>
+									<div class="emptySpace20"></div>
+									<div class="bannerMoreInfo">
+										<div class="moreInfo">
+											<img class="imgShortcode2" src="img/more-info-icon-black.png" alt="">
+											<p>Entire home/apt</p>
+										</div>
+										<div class="moreInfo">
+											<img class="imgShortcode2" src="img/more-info-icon2-black.png" alt="">
+											<p>6 Guests</p>
+										</div>
+										<div class="moreInfo">
+											<img class="imgShortcode2" src="img/more-info-icon3-black.png" alt="">
+											<p>2 Bedrooms</p>
+										</div>
+										<div class="moreInfo">
+											<img class="imgShortcode2" src="img/more-info-icon4-black.png" alt="">
+											<p>3 Beds</p>
+										</div>
+									</div>
+								</div>
+								<div class="emptySpace-sm30"></div>
+							</div> 
+						</div>
+					</div>
+					<div class="searchMapBox">
+						<!-- 	Map-Start 	-->
+						<div id="map-canvas4" class="map-inst mapSize4" data-lat="37.7057416" data-lng="24.0343753" data-zoom="10"></div>
+						<div class="addresses-block"  data-rel="map-canvas4">
+							<a class="marker" data-lat="37.7057416" data-lng="24.0343753" data-string="1. Here is some address or email or phone or something else..."></a>
+						</div>
+						<!-- 	Map-End 	-->
+					</div>
+      				<div class="clear"></div>
+      				<div class="emptySpace40 emptySpace-xs30"></div>
+       			</div>
+       			<!--  	Search Block3-END 	-->
+       			
+       			<div class="emptySpace40 emptySpace-xs30"></div>
+       			
+       			<!--  	Search Block4-START 	-->
+       			<div class="SearchResultBlock wow fadeInUp">
+       				<div class="searchImgBox">
+						<a href="#" class="thumbnailAnimation ">
+							<span class="tumbBrTB">
+								<span class="tumbBrLR">
+									<img class="imgShortcode" src="img/search-result-img4.jpg" alt="">
+								</span>
+							</span>
+						</a>
+						<div class="emptySpace-sm20"></div>
+					</div>
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-sm-10 col-sm-offset-1 col-md-7 col-md-offset-3">
+								<div class="emptySpace10"></div>
+								<div class="searchResultContent small">
+									<h5 class="h5 as"><a href="#">Cottage Sea Rose</a></h5>
+									<div class="emptySpace20"></div>
+									<div class="bannerStars">
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+										<i class="icon-star"></i>
+										<i class="icon-star-empty"></i>
+										<p>30 REVIEWS</p>
+										<div class="emptySpace-sm10"></div>
+									</div>
+									<div class="addresShortocode">
+										<a href="#">
+											<img class="imgShortcode2" src="img/addres-icon.png" alt="">
+											<span>Halkidiki, Makedonia Thraki, Greece</span>
+										</a>
+									</div>
+									<div class="emptySpace15"></div>
+									<p>Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupid at at non proident, sunt in culpare</p>
+									<div class="emptySpace15"></div>
+									<div class="objectPrice newPrice">
+										<p>$3 500/mo<span>$4 550/mo</span></p>
+									</div>
+									<div class="emptySpace20"></div>
+									<div class="bannerMoreInfo">
+										<div class="moreInfo">
+											<img class="imgShortcode2" src="img/more-info-icon-black.png" alt="">
+											<p>Entire home/apt</p>
+										</div>
+										<div class="moreInfo">
+											<img class="imgShortcode2" src="img/more-info-icon2-black.png" alt="">
+											<p>6 Guests</p>
+										</div>
+										<div class="moreInfo">
+											<img class="imgShortcode2" src="img/more-info-icon3-black.png" alt="">
+											<p>2 Bedrooms</p>
+										</div>
+										<div class="moreInfo">
+											<img class="imgShortcode2" src="img/more-info-icon4-black.png" alt="">
+											<p>3 Beds</p>
+										</div>
+									</div>
+								</div>
+								<div class="emptySpace-sm30"></div>
+							</div> 
+						</div>
+					</div>
+					<div class="searchMapBox">
+						<!-- 	Map-Start 	-->
+						<div id="map-canvas5" class="map-inst mapSize4" data-lat="37.7489652" data-lng="24.0951633" data-zoom="10"></div>
+						<div class="addresses-block"  data-rel="map-canvas5">
+							<a class="marker" data-lat="37.7489652" data-lng="24.0951633" data-string="1. Here is some address or email or phone or something else..."></a>
+						</div>
+						<!-- 	Map-End 	-->
+					</div>
+      				<div class="clear"></div>
+      				<div class="emptySpace40 emptySpace-xs30"></div>
+       			</div>
+       			<!--  	Search Block4-END 	-->
+       			
+       			<div class="emptySpace40 emptySpace-xs30"></div>
+       			
+       			<!-- 	Pagination-START 	-->
+       			<div class="commentButtonWrapper">
+					<a href="#" class="prevButton small">
+						<p>Prevevios Houses</p>
+						<span> &lt; </span>
+					</a>
+					<div class="numerPagiWrapper">
+						<a href="#" class="pagi pagiActive"><span>1</span></a>
+						<a href="#" class="pagi"><span>2</span></a>
+						<a href="#" class="pagi"><span>3</span></a>
+						<a href="#" class="pagi"><span>4</span></a>
+						<span> . . . </span>
+						<a href="#" class="pagi"><span>13</span></a>
+					</div>
+					<a href="#" class="nextButton small">
+						<p>Next Houses</p>
+						<span> &gt; </span>
+					</a>
+				</div>
+       		<!-- 	Pagination-END 	-->
+			</div>
+       		<!-- 	Content box-END 	-->
+        </div>
+        <div class="emptySpace115 emptySpace-md60 emptySpace-xs30"></div>
+    </div>
+
+	<!-- Footer-Start -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="footerLogo footerRightBorder">
+					   <a href="index.html"><img class="imgShortcode" src="img/logo.png" alt=""></a>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="footerPhone footerRightBorder">
+						<h6 class="h7 as">phone: <a href="tel:+306934929598">+30 6934929598</a></h6>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="footerEmail footerRightBorder">
+						<h6 class="h7 as">email: <a href="mailto:your_summer@email.com">your_summer@email.com</a></h6>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="footerDev">
+						<h6 class="h7 as">development by <a href="http://redstone.media/" target="_blank">redstone</a></h6>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer-End -->
+    
+    <!--     Popup-Start     -->
+    <div class="popup-wrapper">
+        <div class="bg-layer"></div>
+		
+		<!-- 	Login popup-Start 	-->
+        <div class="popup-content" data-rel="1">
+            <div class="layer-close"></div>
+            <div class="popup-container size-1">
+                <div class="popup-align">
+					<div class="popupForm">
+						<div class="emptySpace55"></div>
+						<h4 class="h4 as">Login</h4>
+						<div class="emptySpace15"></div>
+						<form>
+							<div class="inputWrapper">
+								<label for="input-1">E-mail</label>
+								<input id="input-1" class="simple-input" type="email" value="" />
+							</div>
+							<div class="emptySpace5"></div>
+							<div class="inputWrapper">
+								<label for="input-2">Password</label>
+								<input id="input-2" class="simple-input" type="password" value="" />
+							</div>
+							<div class="emptySpace25"></div>
+							<label class="checkbox-entry">
+								<input type="checkbox" /><span>Remember me</span>
+							</label>
+							<div class="emptySpace20"></div>
+							<div class="open-popup forgotPass small" data-rel="5">Forgot password?</div>
+							<div class="loginBtnWrapper">
+								<button type="submit" class="button">Submit</button>
+							</div>
+						</form>
+					</div>
+            		<div class="emptySpace40"></div>
+             		<div class="registerBlock">
+						<div class="open-popup openRegisterPopup" data-rel="2">I don’t have profile. <span>Register now!</span></div>
+					</div>
+                </div>
+                <div class="button-close"><span></span><span></span></div>
+            </div>
+        </div>
+        <!-- 	Login popup-End 	-->
+        
+        <!-- 	Register popup-Start 	-->
+        <div class="popup-content" data-rel="2">
+            <div class="layer-close"></div>
+            <div class="popup-container size-1">
+                <div class="popup-align">
+					<div class="popupForm">
+						<div class="emptySpace55"></div>
+						<h4 class="h4 as">Register</h4>
+						<div class="emptySpace15"></div>
+						<form>
+							<div class="inputWrapper">
+								<label for="input-3">Name</label>
+								<input id="input-3" class="simple-input" type="text" value="" />
+							</div>
+							<div class="emptySpace5"></div>
+							<div class="inputWrapper">
+								<label for="input-4">E-mail</label>
+								<input id="input-4" class="simple-input" type="email" value="" />
+							</div>
+							<div class="emptySpace5"></div>
+							<div class="inputWrapper">
+								<label for="input-5">Password</label>
+								<input id="input-5" class="simple-input" type="password" value="" />
+							</div>
+							<div class="emptySpace5"></div>
+							<div class="inputWrapper">
+								<label for="input-6">Repeat password</label>
+								<input id="input-6" class="simple-input" type="password" value="" />
+							</div>
+							<div class="emptySpace20"></div>
+							<label class="checkbox-entry">
+								<input type="checkbox" /><span>Remember me</span>
+							</label>
+							<div class="emptySpace20"></div>
+							<label class="checkbox-entry">
+								<input type="checkbox" /><span>I agree with privacy policy</span>
+							</label>
+							<div class="loginBtnWrapper">
+								<button type="submit" class="button">Submit</button>
+							</div>
+						</form>
+						<div class="emptySpace60"></div>
+					</div>
+                </div>
+                <div class="button-close"><span></span><span></span></div>
+            </div>
+        </div>
+        <!-- 	Register popup-End 	-->
+        
+        <!-- 	forgot password popup-Start 	-->
+        <div class="popup-content" data-rel="5">
+            <div class="layer-close"></div>
+            <div class="popup-container questionPopUp size-1">
+                <div class="popup-align">
+					<div class="popupForm">
+						<div class="emptySpace55"></div>
+						<h4 class="h4 as">Forgot password?</h4>
+						<div class="emptySpace15"></div>
+						<form>
+							<div class="inputWrapper">
+								<label for="input-7">First Name</label>
+								<input id="input-7" class="simple-input" type="text" value="" />
+							</div>
+							<div class="inputWrapper">
+								<label for="input-8">Last Name</label>
+								<input id="input-8" class="simple-input" type="text" value="" />
+							</div>
+							<div class="emptySpace5"></div>
+							<div class="inputWrapper">
+								<label for="input-9">E-mail</label>
+								<input id="input-9" class="simple-input" type="email" value="" />
+							</div>
+							<div class="emptySpace20"></div>
+							<div class="btnWrapper2">
+								<button type="submit" class="button">Submit</button>
+							</div>
+						</form>
+						<div class="emptySpace60"></div>
+					</div>
+                </div>
+                <div class="button-close"><span></span><span></span></div>
+            </div>
+        </div>
+        <!-- 	forgot password popup-End 	-->
+    </div>
+    <!--     Popup-End     -->
+    
+    
+    <!--     Styles-Start     -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/fontello.css">
+    <link rel="stylesheet" href="css/sumoselect.css">
+    <link rel="stylesheet" href="css/daterangepicker.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!--     Styles-End     -->
+
+    <!--     Scripts-Start     -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="js/swiper.jquery.min.js"></script>
+    <script src="js/jquery.sumoselect.min.js"></script>
+    <script src="js/SmoothScroll.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/jquery.daterangepicker.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/global.js"></script>
+    <!--     Scripts-Start     -->
+    
+    <!--     Map-Start     -->
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;language=en"></script>
+    <script src="js/map.js"></script>
+    <!--     Map-End     -->
+
+</body>
+</html>

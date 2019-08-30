@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+   
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>GreenVille</title>
+    
+    <style>
+        .loader-wrapper {position: fixed;left: 0;top: -100px;right: 0;bottom: -100px;background: #fff;z-index: 100;}
+        .loader-wrapper svg { position: absolute; top: 50%; left: 50%; max-width: 200px; max-height: 170px; display: block; transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%);}
+        .spinner{width:250px;height:250px;position:absolute;top:0;left:0;right:0;bottom:0;margin:auto;-webkit-animation:rotate-all 1s linear infinite;animation:rotate-all 1s linear infinite}.left-side,.right-side{width:50%;height:100%;position:absolute;top:0;overflow:hidden}.left-side{left:0}.right-side{right:0}.bar{width:100%;height:100%;border-radius:200px 0 0 200px;border:2px solid #44b749;position:relative}.bar:after{content:"";width:0px;height:2px;display:block;background:#44b749;position:absolute;border-radius:2px}.right-side .bar{border-radius:0 200px 200px 0;border-left:none;-webkit-transform:rotate(-10deg);transform:rotate(-10deg);-webkit-transform-origin:left center;transform-origin:left center;-webkit-animation:rotate-right .75s linear infinite alternate;animation:rotate-right .75s linear infinite alternate}.right-side .bar:after{bottom:-10px;left:-5px}.left-side .bar{border-right:none;-webkit-transform:rotate(10deg);transform:rotate(10deg);-webkit-transform-origin:right center;transform-origin:right center;-webkit-animation:rotate-left .75s linear infinite alternate;animation:rotate-left .75s linear infinite alternate}.left-side .bar:after{bottom:-10px;right:-5px}@-webkit-keyframes rotate-left{to{-webkit-transform:rotate(30deg);transform:rotate(30deg)}from{-webkit-transform:rotate(175deg);transform:rotate(175deg)}}@keyframes rotate-left{to{-webkit-transform:rotate(30deg);transform:rotate(30deg)}from{-webkit-transform:rotate(175deg);transform:rotate(175deg)}}@-webkit-keyframes rotate-right{from{-webkit-transform:rotate(-175deg);transform:rotate(-175deg)}to{-webkit-transform:rotate(-30deg);transform:rotate(-30deg)}}@keyframes rotate-right{from{-webkit-transform:rotate(-175deg);transform:rotate(-175deg)}to{-webkit-transform:rotate(-30deg);transform:rotate(-30deg)}}@-webkit-keyframes rotate-all{from{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes rotate-all{from{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}
+        .loader-wrapper.loaded {opacity: 0;visibility: hidden;-webkit-transition: opacity 400ms linear, visibility 400ms linear;transition: opacity 400ms linear, visibility 400ms linear; }
+        .loader-wrapper.loaded svg { -webkit-transform: translate(-50%, -50%) scale(1.2);transform: translate(-50%, -50%) scale(1.2); -webkit-transition: -webkit-transform 300ms linear; transition: transform 300ms linear;}
+            html:not(.mobile)::-webkit-scrollbar, html:not(.mobile) *::-webkit-scrollbar {width: 8px; height: 6px;}
+            html:not(.mobile)::-webkit-scrollbar-track, html:not(.mobile) *::-webkit-scrollbar-track {background: rgba(192, 192, 192, .7);}
+            html:not(.mobile)::-webkit-scrollbar-thumb, html:not(.mobile) *::-webkit-scrollbar-thumb {background-color: #6dac3a;}
+    </style>
+    
+</head>
+<body>
+
+    <!--    Loader-START    -->
+    <div class="loader-wrapper">
+        <div class="spinner">
+            <div class="right-side">
+                <div class="bar"></div>
+            </div>
+            <div class="left-side">
+                <div class="bar"></div>
+            </div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="167" height="215" viewBox="0 0 167 215">
+            <image width="167" height="215" xlink:href="data:img/png;base64,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"/>
+        </svg>
+
+    </div>
+    <!--    Loader-END  -->
+
+    <div id="content-block">
+        <div class="pageLine"></div>
+        <div class="pageLineSecond"></div>
+        <!-- Header-START -->
+        <header>
+            <div class="headerWrapper">
+                <!-- Header logo-START -->
+                <a id="logo" href="index.html">
+                    <img src="fonts/svg-icon/Greenville_logo.svg" alt="">
+                </a>
+                <!-- Header logo-END -->
+
+                <!-- Navigation-START -->
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="about.html">Про Greenville</a></li>
+                        <li>
+                            <p>Проекти</p>
+                            <i></i> <!-- Angle down icon -->
+                            <!-- Drop dowm menu-START -->
+                            <ul>
+                                <li>
+                                    <a href="projects.html"><span>Девелоперські проекти</span></a>
+                                </li>
+                                <li>
+                                    <a href="project-detail.html"><span>Альтернативна енергетика</span></a>
+                                </li>
+                                <li>
+                                    <a href="project-detail.html"><span>Соціальні ініціативи</span></a>
+                                </li>
+                            </ul>
+                            <!-- Drop dowm menu-END -->
+                        </li>
+                        <li><a href="news.html">Новини</a></li>
+                        <li class="active"><a href="contact.html">Контакти</a></li>
+                    </ul>
+                </nav>
+                <!-- Navigation-END -->
+
+                <!-- Social-START -->
+                <div class="icons hover">
+                    <a href="https://www.facebook.com/" target="_blank">
+                        <img src="fonts/svg-icon/facebook.svg" alt="">
+                        <img src="fonts/svg-icon/facebook-white.svg" alt="">
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <img src="fonts/svg-icon/instagram.svg" alt="">
+                        <img src="fonts/svg-icon/instagram-white.svg" alt="">
+                    </a>
+                </div>
+                <!-- Social-END -->
+
+                <!-- Hamburger-START -->
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <!-- Hamburger-END -->
+            </div>
+        </header>
+        <!-- Header-END -->
+        
+        <div class="emptySpace80 emptySpace-sm60"></div>
+        
+        <!-- Greenville contact-START -->
+        <div class="container-fluid fullSize simpleAnimationTrgg">
+            <div class="emptySpace140 emptySpace-lt90 emptySpace-sm70 emptySpace-xs50"></div>
+            <div class="row">
+                <!-- Main title-START -->
+                <div class="col-md-10 col-md-offset-1 my-col-lt-10 my-offset-lt-1 col-lg-8 col-lg-offset-2">
+                    <div class="titleAnimation">
+                        <div class="mainTitle normall">
+                            <div class="titleInner">
+                                <h1 class="h1 as">Наші контакти</h1>
+                                <p>Перегляньте наші проекти на карті Льова</p>
+                            </div>
+                            <div class="imgWrapper">
+                                <img src="fonts/svg-icon/leaf.svg" alt="">
+                            </div>
+                            <div class="projectDate">
+                                <i>09</i>
+                                <p>вересня   <span>2017</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Main title-END -->
+
+                <!-- Contact-START -->
+                <div class="col-md-10 col-md-offset-1 my-col-lt-10 my-offset-lt-1 col-lg-8 col-lg-offset-2">
+                    <div class="emptySpace70 emptySpace-lt90 emptySpace-sm40 emptySpace-xs50"></div>
+                    <div class="col-sm-4">
+                        <!-- Location-START -->
+                        <div class="contactWrapper">
+                            <h5 class="h5 as">наші контакти</h5>
+                            <div class="emptySpace35 emptySpace-xs15"></div>
+                            <div class="contact">
+                                <div class="icons size2">
+                                    <div class="imgWrapper">
+                                        <img src="fonts/svg-icon/location.svg" alt="">
+                                    </div>
+                                </div>
+                                
+                                <div class="contactInfo small">
+                                    <h6 class="h6 as">Адреса</h6>
+                                    <p>Адреса Княгині Ольги 100 Б</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Location-END -->
+
+                        <div class="emptySpace25 emptySpace-xs10"></div>
+
+                        <!-- Phone-START -->
+                        <div class="contactWrapper">
+                            <div class="contact">
+                                <div class="icons size2">
+                                    <div class="imgWrapper">
+                                        <img src="fonts/svg-icon/smartphone.svg" alt="">
+                                    </div>
+                                </div>
+                                
+                                <div class="contactInfo small">
+                                    <h6 class="h6 as">Телефон</h6>
+                                    <a href="tel:380322444244">+38 (032) 244-4-244</a>
+                                    <a href="tel:380676712151">+38 (067) 671-2-151</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Phone-END -->
+
+                        <div class="emptySpace25 emptySpace-xs10"></div>
+
+                        <!-- Phone-START -->
+                        <div class="contactWrapper">
+                            <div class="contact">
+                                <div class="icons size2">
+                                    <div class="imgWrapper">
+                                        <img src="fonts/svg-icon/clock.svg" alt="">
+                                    </div>
+                                </div>
+                                
+                                <div class="contactInfo small">
+                                    <h6 class="h6 as">Графік роботи офісу:</h6>
+                                    <p>Пн-Пт: з 09-00 до 19-00</p>
+                                    <p>Сб: з 10-00 до 18-00</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Phone-END -->
+                        <div class="emptySpace-xs40"></div>
+                    </div>
+
+                    <div class="col-sm-8">
+                        <form class="formBorderTrgg">
+                            <h5 class="h5 as">зв`яжіться з нами</h5>
+                            <div class="emptySpace25"></div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>
+                                        <span><input class="simple-input" type="text" value="" placeholder="" /></span>
+                                        <span class="inputFocus"></span>
+                                        <span class="inputFocusSecond"></span>
+                                        <span class="h6 as">Ваше ім`я:</span>
+                                    </label>
+                                    <div class="emptySpace-xs40"></div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>
+                                        <span><input class="simple-input" type="email" value="" placeholder="" /></span>
+                                        <span class="inputFocus"></span>
+                                        <span class="inputFocusSecond"></span>
+                                        <span class="h6 as">Ваше Email:</span>
+                                    </label>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="emptySpace40"></div>
+                                    <label class="textArea">
+                                        <span><textarea class="simple-input" placeholder=""></textarea></span>
+                                        <span class="inputFocus"></span>
+                                        <span class="inputFocusSecond"></span>
+                                        <span class="h6 as">Ваше повідомлення:</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="emptySpace50 emptySpace-xs50"></div>
+
+                            <div class="button btnSize4 open-popup" data-rel="2">
+                                <!-- <input type="submit" class="simple-input"> -->
+                                <div>
+                                    <span>надіслати</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Contact-END -->
+            </div>
+
+        </div>
+        <!-- Greenville contact-END -->
+
+        <div class="emptySpace75 emptySpace-lt90 emptySpace-sm70 emptySpace-xs35"></div>
+
+        <!-- Greenville location-START -->
+        <div class="container-fluid nopadding">
+            <div class="col-sm-8 nopadding">
+                <!--    Map-START   -->
+                    <div id="map-canvas-1" class="map-wrapper" data-style="0" data-lat="49.844008" data-lng="24.026240" data-zoom="15"></div>
+                    <div class="addresses-block">
+                        <a class="marker" data-rel="map-canvas-1" data-image="img/marker.png" data-lat="49.840158" data-lng="24.019922" data-string="<div class='mapContentWrapper'>
+                                    <a href='project-detail.html' class='imgWrapper'>
+                                        <img src='img/marker-img-detail.jpg' alt=''>
+                                    </a>
+                                    <div class='mapContent'>
+                                        <h6 class='h6 as'><a href='project-detail.html'>Озеленення даху житлового будинку “Львівське небо”</a></h6>
+                                        <div class='imgWrapper mapLocationIcon'>
+                                            <img src='fonts/svg-icon/location-pointer.svg' alt=''>
+                                        </div>
+                                        <p>вул. Пекарська 95</p>
+                                    </div>
+                                </div>"></a>
+                        <a class="marker" data-rel="map-canvas-1" data-image="img/marker.png" data-lat="49.844664" data-lng="24.029968" data-string="<div class='mapContentWrapper'>
+                                    <a href='project-detail.html' class='imgWrapper'>
+                                        <img src='img/marker-img-detail.jpg' alt=''>
+                                    </a>
+                                    <div class='mapContent'>
+                                        <h6 class='h6 as'><a href='project-detail.html'>Озеленення даху житлового будинку “Львівське небо”</a></h6>
+                                        <div class='imgWrapper mapLocationIcon'>
+                                            <img src='fonts/svg-icon/location-pointer.svg' alt=''>
+                                        </div>
+                                        <p>вул. Пекарська 95</p>
+                                    </div>
+                                </div>"></a>
+                        <a class="marker" data-rel="map-canvas-1" data-image="img/marker.png" data-lat="49.839638" data-lng="24.030792" data-string="<div class='mapContentWrapper'>
+                                    <a href='project-detail.html' class='imgWrapper'>
+                                        <img src='img/marker-img-detail.jpg' alt=''>
+                                    </a>
+                                    <div class='mapContent'>
+                                        <h6 class='h6 as'><a href='project-detail.html'>Озеленення даху житлового будинку “Львівське небо”</a></h6>
+                                        <div class='imgWrapper mapLocationIcon'>
+                                            <img src='fonts/svg-icon/location-pointer.svg' alt=''>
+                                        </div>
+                                        <p>вул. Пекарська 95</p>
+                                    </div>
+                                </div>"></a>
+                    </div>
+                    <!--    Map-END     -->
+            </div>
+            <div class="col-sm-4 nopadding">
+                <!--    Swiper-START    -->
+                <div class="swiperMainWrapper">
+                    <!--    Swiper Buttons-START    -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <!--    Swiper Buttons-END  -->
+                    <div class="swiper-container" data-auto-height="1">
+                        <div class="swiper-wrapper">
+                            <!--    Slide1-START    -->
+                            <div class="swiper-slide">
+                                <div class="mapSilde imgWrapper bgimage simpleShadow" style="background-image: url(img/mapSlider.jpg);">
+                                </div>
+                            </div>
+                            <!--    Slide1-END  -->
+
+                            <!--    Slide2-START    -->
+                            <div class="swiper-slide">
+                                <div class="mapSilde imgWrapper bgimage simpleShadow" style="background-image: url(img/mapSlider2.jpg);">
+                                </div>
+                            </div>
+                            <!--    Slide2-END  -->
+
+                            <!--    Slide3-START    -->
+                            <div class="swiper-slide">
+                                <div class="mapSilde imgWrapper bgimage simpleShadow" style="background-image: url(img/mapSlider3.jpg);">
+                                </div>
+                            </div>
+                            <!--    Slide3-END  -->
+
+                            <!--    Slide4-START    -->
+                            <div class="swiper-slide">
+                                <div class="mapSilde imgWrapper bgimage simpleShadow" style="background-image: url(img/mapSlider4.jpg);">
+                                </div>
+                            </div>
+                            <!--    Slide4-END  -->
+
+                            <!--    Slide5-START    -->
+                            <div class="swiper-slide">
+                                <div class="mapSilde imgWrapper bgimage simpleShadow" style="background-image: url(img/mapSlider5.jpg);">
+                                </div>
+                            </div>
+                            <!--    Slide5-END  -->
+                        </div>
+                        <!--    Swiper poiner pagination-START  -->
+                        <div class="swiper-pagination swiper-pagination-white"></div>
+                        <!--    Swiper poiner pagination-END    -->
+                    </div>
+                </div>
+                <!--    Swiper-END  -->
+            </div>
+        </div>
+        <!-- Greenville location-END -->
+
+       <!-- Footer-START -->
+        <footer>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="row footerSeparator">
+                            <div class="col-sm-6 col-md-3">
+                                <a class="footerLogo imgWrapper" href="index.html">
+                                    <img src="fonts/svg-icon/Greenville_logo.svg" alt="">
+                                </a>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="footerInfo small">
+                                    <h6 class="h6 as">Адреса</h6>
+                                    <a href="contact.html#map-canvas-1">Адреса Княгині Ольги 100 Б</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="footerInfo small">
+                                    <h6 class="h6 as">Телефон</h6>
+                                    <a href="tel:+380322444244">+38 (032) 244-4-244</a>
+                                    <a href="tel:+380676712151">+38 (067) 671-2-151</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="footerInfo small">
+                                    <h6 class="h6 as">Слідкуйте за нами:</h6>
+                                     <!-- Social-START -->
+                                    <div class="icons hover">
+                                        <a href="https://www.facebook.com/" target="_blank">
+                                            <img src="fonts/svg-icon/facebook.svg" alt="">
+                                            <img src="fonts/svg-icon/facebook-white.svg" alt="">
+                                        </a>
+                                        <a href="https://www.instagram.com/" target="_blank">
+                                            <img src="fonts/svg-icon/instagram.svg" alt="">
+                                            <img src="fonts/svg-icon/instagram-white.svg" alt="">
+                                        </a>
+                                    </div>
+                                    <!-- Social-END -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid footerBottom">
+                <div class="row">
+                <div class="col-xs-12">
+                    <div class="flexJustify">
+                        <div class="copy">© 2017 ФОНД ЗЕЛЕНИХ ТЕХНОЛОГІЙ GREENVILLE</div>
+                        <a class="RS" href="http://redstone.media/">
+                            створення сайтів
+                            <span class="imgWrapper">
+                                <img src="img/dev-logo.png" alt="">
+                                <img src="img/dev-logo-hover.png" alt="">
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </footer>
+        <!-- Footer-END -->
+        <div class="closeLayer"></div>
+
+    </div>
+    
+    <!--    Popup-START     -->
+    <div class="popup-wrapper">
+        <div class="bg-layer"></div>
+        <!--    Popup1-START    -->
+        <div class="popup-content" data-rel="1">
+            <div class="layer-close"></div>
+            <div class="popup-container size-1">
+                <div class="popupVideoWrapper">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe width="560" height="315" src="about:blank" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <!--    Popup close button-START    -->
+                <div class="button-close">
+                    <span></span><span></span>
+                </div>
+                <!--    Popup close button-END  -->
+            </div>
+        </div>
+        <!--    Popup1-END  -->
+
+        <!--    Popup1-START    -->
+        <div class="popup-content popupAnimation2" data-rel="2">
+            <div class="layer-close"></div>
+            <div class="popup-container size-2">
+                <div class="imgWrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="167" height="215" viewBox="0 0 167 215">
+                        <image width="167" height="215" xlink:href="data:img/png;base64,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"/>
+                    </svg>
+                </div>
+                <div class="h3 h3 as">Повідомлення надіслано</div>
+            </div>
+
+            <!--    Popup close button-START    -->
+            <div class="button-close">
+                <span></span><span></span>
+            </div>
+            <!--    Popup close button-END  -->
+        </div>
+        <!--    Popup1-END  -->
+    </div>
+    <!--    Popup-END   -->
+    
+    <!--    Styles-START    -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/swiper.css" type="text/css" />
+    <link rel="stylesheet" href="css/sumoselect.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <!--    Styles-END  -->
+
+    <!--    Scripts-START  -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/swiper.jquery.min.js"></script>
+    <script src="js/SmoothScroll.js"></script>
+    <script src="js/jquery.sumoselect.min.js"></script>
+    <script src="js/global.js"></script>
+    <!--    Scripts-END     -->
+
+    <!-- Map-START-->
+    <script language="javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9CXLB6tTD94qL3Jdxbesrx9Cj6fUUumE&sensor=true&amp;v=3&amp;language=ua"></script>
+    <script src="js/map.js"></script>
+    <!-- Map-END-->
+
+</body>
+</html>
